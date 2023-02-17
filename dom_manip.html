@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>DOM Manipulation Example</title>
+        <script>
+            // When the window is loaded
+            window.onload = function() {
+                // Add the handleClick function as an event handler for the button
+                document.getElementById("btnNextStep").onclick = handleClick;
+
+                let newPara, newTextNode, oldPara, body; // variables to make things easier to track
+                let numClicks = 0; // number of steps that have been carried out
+
+                function handleClick() {
+                    numClicks++;
+
+                    switch (numClicks) {
+                        case 1:
+                            alert("Creating <p> element");
+                            newPara = document.createElement("p");
+                            break;
+                        case 2:
+                            alert("Creating text node");
+                            newTextNode = document.createTextNode("Cheesiest movie line EVER");
+                            break;
+                        case 3:
+                            alert("Adding text node to new <p> element");
+                            newPara.appendChild(newTextNode);
+                            break;
+                        case 4:
+                            alert("Adding new <p> element to <body> element");
+                            oldPara = document.getElementById("para");
+                            body = oldPara.parentNode;
+                            body.appendChild(newPara);
+                            break;
+                        case 5:
+                            alert("Removing the newly added <p> element");
+                            body.removeChild(newPara);
+                            break;
+                        case 6:
+                            alert("Adding new <p> element before the existing paragraph");
+                            body.insertBefore(newPara, oldPara);
+                            break;
+                        case 7:
+                            alert("Removing the newly added <p> element, again");
+                            body.removeChild(newPara);
+                            break;
+                        case 8:
+                            alert("Replacing the existing paragraph with the new one");
+                            body.replaceChild(newPara, oldPara);
+                            break;
+                        default:
+                            alert("All done!");
+                    }
+                }
+            };
+        </script>
+    </head>
+
+    <body>
+        <p id="para">
+            I am the <strong>KING</strong> of the world!
+        </p>
+        
+        <p>
+            <button id="btnNextStep">Click me!</button>
+        </p>
+    </body>
+</html>

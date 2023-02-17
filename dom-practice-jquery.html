@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>The Smartest Person I Know</title>
+        <script src="scripts/jquery-3.4.1.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $("button").on("click", function() {
+                    $("#smart").html("<em>Brendan Eich</em>");
+                });
+            });
+        </script>
+    </head>
+
+    <body>
+        <p>
+            The smartest person to ever exist is <span id="smart">Alfred Einstein</span>.
+        </p>
+        
+        <p>
+            <button>Correct the statement</button>
+        </p>
+    </body>
+</html>

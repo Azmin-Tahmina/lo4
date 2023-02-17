@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Cross-browser modification of a class</title>
+        <script src="scripts/jquery-3.4.1.min.js"></script>
+    </head>
+
+    <body>
+        <h1>A cross-browser script</h1>
+        <p class="modify">
+            This paragraph will be modified.
+        </p>
+        
+        <h1 class="modify">This heading will be modified</h1>
+        <ul>
+            <li>This list item will not be modified</li>
+            <li class="modify">This list item will be modified</li>
+            <li>Nothing else will be modified</li>
+        </ul>
+                
+        <p>
+            <button id="btnModify">Modify web page</button>
+        </p>
+
+        <script>
+            $("#btnModify").on("click", function() {
+                $(".modify").html("<strong>Element has been modified</strong>");
+            });
+        </script>
+    </body>
+</html>

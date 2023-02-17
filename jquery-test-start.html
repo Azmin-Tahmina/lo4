@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Simple jQuery example</title>
+        <style type="text/css">
+            #result {
+                display: none;
+                background-color: #8CECE3;
+                border: 1px solid black;
+                padding: 3px;
+                width: 10em;
+            }
+        </style>
+    </head>
+
+    <body>
+        <p>
+            Click the button below to test to see if you have
+            correctly installed jQuery
+        </p>
+        
+        <p>
+            <button onclick="$('#result').show('slow');">Click to test</button>
+        </p>
+        
+        <p id="result">
+            If you can see this paragraph, you have correctly installed jQuery!
+        </p>
+    </body>
+</html>

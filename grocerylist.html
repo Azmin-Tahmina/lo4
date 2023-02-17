@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <!--  
+  Filename: grocerylist.html
+  Author:   Michael Grzesina (cst000)
+  Date:     2/28/2019
+  Purpose:  Demonstrate DOM functions
+  -->
+   <meta charset="UTF-8">
+   <title>Grocery List</title>
+</head>
+<body>
+   <h1>Grocery List</h1>
+   <p><label for="txtItem">Enter item to add to list: </label><input type="text" id="txtItem" />
+      <input type="button" value="Go!" id="btnGo" /></p>
+   <div id="output"></div>
+
+   <script>
+      "use strict";
+
+      /*
+       * Function: anonymous
+       * Purpose: add item entered into text box into unordered list in lexicographical order
+       * Parameters: none
+       * Returns: none
+       * Assumptions: there is a button with the id "btnGo", a div with the id "output" that is initially empty,
+       *    and a text box with the id "txtItem"
+       */
+      document.getElementById("btnGo").onclick = function() {
+          // Get value from the text box and create a new list item in memory containing that value
+          let myNewText = document.getElementById("txtItem").value;
+          let myNewItem = document.createElement("li");
+          let myNewTextNode = document.createTextNode(myNewText);
+          myNewItem.appendChild(myNewTextNode);
+
+          // Get the output div and check if it has a child; if not, create an unordered list as its child
+          let myListDiv = document.getElementById("output");
+          let myList = myListDiv.firstElementChild;
+          if (myList === null) {
+              myList = document.createElement("ul");
+              myListDiv.appendChild(myList);
+          }
+
+          // Loop through list items until the new item's text is less than the current item's text
+          //  or the end of the list is reached
+          let myListItem = myList.firstElementChild;
+          while (myListItem !== null) {
+              let myCurrentText = myListItem.textContent;
+              if (myNewText.toLowerCase() < myCurrentText.toLowerCase()) {
+                  break;
+              }
+              myListItem = myListItem.nextElementSibling;
+          }
+          // Add new item before the last list item (or at the end if myListItem is null)
+          myList.insertBefore(myNewItem, myListItem);
+
+          // Clear the text box and give it the focus for the next item
+          document.getElementById("txtItem").value = "";
+          document.getElementById("txtItem").focus();
+      };
+   </script>
+</body>
+</html>

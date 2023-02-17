@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>DOM Manipulation with jQuery Example</title>
+        <script src="scripts/jquery-3.4.1.min.js"></script>
+        <script>
+            function test() {
+                numClicks++;
+                
+                switch ( numClicks ) {
+                    case 1:
+                        alert( "Adding new <p> element to <body> element" );
+                        $("body").append( "<p>Cheesiest movie line EVER</p>" );
+                        break;
+                    case 2:
+                        alert( "Removing the newly added <p> element" );
+                        $("p:last").remove();
+                        break;
+                    case 3:
+                        alert( "Adding new <p> element before the existing paragraph" );
+                        $("body").prepend( "<p>Cheesiest movie line EVER</p>" );
+                        break;
+                    case 4:
+                        alert( "Removing the newly added <p> element, again" );
+                        $("p:first").remove();
+                        break;
+                    case 5:
+                        alert( "Replacing the existing paragraph with the new one" );
+                        $("#para").replaceWith( "<p>Cheesiest movie line EVER</p>" );
+                        break;
+                    case 6:
+                        alert( "Adding a new paragraph after the existing one" );
+                        $("p").after( "<p>I am being added after</p>" );
+                        break;
+                    case 7:
+                        alert( "Adding a new paragraph in front of the first one" );
+                        $("p:first").before( "<p>I am being added before</p>" );
+                        break;
+                    default:
+                        alert( "All done!" );
+                }
+            }
+            
+            let numClicks = 0;
+        </script>
+    </head>
+
+    <body>
+        <p id="para">
+            I am the <strong>KING</strong> of the world!
+        </p>
+
+        <div>
+            <button id="btnTest">Test</button>
+        </div>
+
+		<script>
+			// Add test function to button
+			$("#btnTest").on("click", test);
+		</script>
+    </body>
+</html>

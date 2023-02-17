@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>The Smartest Person I Know</title>
+        <script>
+            "use strict";
+
+            window.onload = function() {
+                document.getElementById("btnCorrect").onclick = function() {
+                    // let myName = document.createTextNode("Michael Grzesina");
+                    // let myEm = document.createElement("em");
+                    // myEm.appendChild(myName);
+                    // let mySpan = document.getElementById("smart");
+                    // mySpan.replaceChild(myEm, mySpan.firstChild);
+
+                    document.getElementById("smart").innerHTML = "<em>Brendan Eich</em>";
+                }
+            };
+        </script>
+    </head>
+
+    <body>
+        <p>
+            The smartest person to ever exist is <span id="smart">Alfred Einstein</span>.
+        </p>
+        
+        <p>
+            <button id="btnCorrect">Correct the statement</button>
+        </p>
+    </body>
+</html>

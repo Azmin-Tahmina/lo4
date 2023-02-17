@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>jQuery Selector Practice</title>
+        <script src="scripts/jquery-3.4.1.min.js"></script>
+        <script>
+            // window.onload = function() {
+            //     document.querySelector("button").onclick = applyStyles;
+            // };
+            $(document).ready(function() {
+                $("button").on("click", applyStyles);
+            });
+
+
+            function applyStyles() {
+                $("#school").css("font-family", "monospace");
+                $("p:first").css("color", "red");
+                $("ul li:odd").css("background-color", "yellow");
+                $("span").css({
+                    "background-color": "blue",
+                    "color": "white",
+                    "padding": "3px",
+                    "border": "1px solid black"
+                });
+            }
+        </script>
+    </head>
+
+    <body>
+        <p>The following are the NHL teams based in Canada:</p>
+        
+        <ul>
+            <li>Vancouver Canucks</li>
+            <li>Calgary Flames</li>
+            <li>Edmonton Oilers</li>
+            <li>Winnipeg Jets</li>
+            <li><span>Toronto Maple Leafs</span></li>
+            <li>Ottawa Senators</li>
+            <li>Montreal Canadiens</li>
+        </ul>
+        
+        <p id="school">I am a student taking classes at Sask Polytech</p>
+        
+        <p>My 3 favourite foods are:</p>
+        <ol>
+            <li>macaroni and cheese</li>
+            <li>wieners and beans</li>
+            <li>pizza</li>
+        </ol>
+        
+        <div>
+            <button>Click here to apply styles</button>
+        </div>
+    </body>
+</html>
