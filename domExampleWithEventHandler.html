@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Example With Event Handler</title>
+</head>
+<body>
+    <p id="pid0">
+      I am the
+      <strong>King</strong>
+      of my world
+    </p>
+    <button onclick="buttonClick();">Click Me</button>
+
+    <script>
+      "use strict";
+
+      let pid0, firstNode, lastNode, parentNode, pid1,textNode, numClicks = 0;
+      pid0 = document.getElementById("pid0");
+      parentNode = pid0.parentNode;
+
+
+      function buttonClick()
+      {
+          numClicks++;
+          switch (numClicks)
+          {
+              case 1:
+                  alert("Create new p");
+                  pid1 = document.createElement("p");
+                  break;
+              case 2:
+                  alert("Create textnode");
+                  textNode = document.createTextNode("New Textnode");
+                  break;
+              case 3:
+                  alert("append textnode to p");
+                  pid1.appendChild(textNode);
+                  break;
+              case 4:
+                  alert("add paragraph to the body");
+                  parentNode.appendChild(pid1);
+                  break;
+              default:
+                  alert("all done");
+
+          }
+        // alert("clicked");
+      }
+
+
+    </script>
+</body>
+</html>
