@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Window Object Example</title>
+</head>
+<body>
+  <div>
+    <button id="newWindow">Window Open</button>
+    <br>
+    <button id="disableClick">Disable click event</button>
+  <br>
+  <button id="windowBack">Go Back</button>
+  <br>
+  <button id="displayLocation">Display Location</button>
+  <p id="printLocation"></p>
+  <br>
+  <button id="assignLocation">Assign Location</button>
+  <br>
+  <button id="replaceLocation">Replace Location</button>
+  <br>
+  <button id="startInterval">Start Interval</button>
+  <br>
+  <button id="endInterval">End Interval</button>
+  <br>
+  <button id="navigatorInfo">Navigator Information</button>
+  <br>
+  <button id="screenObject">Window Screen</button>
+  </div>
+  <script>
+    "use strict";
+
+    document.getElementById("screenObject").onclick = function()
+    {
+        let height = 400;
+        let width = 500;
+
+        let availableHeight = screen.availHeight;
+        let availableWidth = screen.availWidth;
+
+        window.open("","","width=400,height=500");
+
+        window.resizeTo(height,width);
+        let newPositionHeight = (availableHeight - height)/2;
+        let newPositionWidth = (availableHeight - width)/2;
+
+        window.moveTo(newPositionHeight,newPositionWidth);
+        window.alert("new window");
+
+    }
+    let count = 0;
+    let timeOut;
+
+    window.onload = function()
+    {
+        document.getElementById("newWindow").onclick = function()
+        {
+            window.open("https://saskpolytech.ca");
+        }
+
+        document.getElementById("disableClick").onclick = null;
+
+        document.getElementById("windowBack").onclick = function()
+        {
+            // window.history.back();
+            //history.back();
+            window.history.go(-1);
+        }
+
+        document.getElementById("displayLocation").onclick = function (){
+            window.alert(window.location);
+            document.getElementById("printLocation").innerHTML = window.location;
+        }
+        document.getElementById("assignLocation").onclick = function()
+        {
+            window.location = "https://saskpolytech.ca";
+        }
+        document.getElementById("replaceLocation").onclick = function()
+        {
+            window.location.replace("https://www.w3schools.com");
+        }
+
+        document.getElementById("startInterval").onclick = function()
+        {
+            timeOut = window.setInterval(function(){
+                count++;
+                debugger;
+                alert(count);
+                }, 1000);
+        }
+
+        document.getElementById("endInterval").onclick = function ()
+        {
+            clearInterval(timeOut);
+        }
+
+        document.getElementById("navigatorInfo").onclick = function()
+        {
+            window.alert(window.navigator.userAgent);
+        }
+
+    }
+
+
+
+
+
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> DOM Example </title>
+</head>
+<body>
+  <p id = "pid0" >
+      I am the
+      <strong>King</strong>
+      <i> of my </i>
+      world
+  </p>
+  <p id="pid1">
+     this is second paragraph
+  </p>
+
+  <script>
+      "use strict"
+
+      let pid0 = document.getElementById("pid0");
+      let pid1 = document.getElementById("pid1");
+
+      let pid_parent =  pid0.parentNode;
+
+      let pid0_firstChild = pid0.childNodes[0];
+      let pid0_secondChild = pid0.childNodes[1]; // it contains the strong element
+      let pid0_thirdChild = pid0.childNodes[2];
+      let pid0_forthChild = pid0.childNodes[3];
+
+      let pid1_firstChild = pid1.childNodes[0];
+
+      // I want to create new  HTML element “p”
+      // with id = pid2 and text/innerHTML = “this is third paragraph”
+
+      let pid2 = document.createElement("p"); //Parent
+      let pid2_textNode = document.createTextNode("this is third paragraph"); //ChildNode
+
+      pid2.appendChild(pid2_textNode);
+
+      pid2.id = "pid2";
+
+      pid_parent.appendChild(pid2);
+
+      // let pid2_idtest = document.getElementById("pid2");
+      //
+      // console.log(pid2_idtest.innerHTML);
+
+      //removing the new element what I have created
+
+      pid_parent.removeChild(pid2);
+
+      let new_textNode = document.createTextNode("only ");
+      // I am the "only " king of my world
+      // I have added only to the pid0
+
+      pid0.insertBefore(new_textNode,pid0_secondChild);
+
+      // parent_of_oldPara.replaceChild( newPara, oldPara );
+
+      // I am replacing pid0 with pid2
+
+      pid_parent.replaceChild(pid2,pid0);
+
+
+      // console.log("Parent Node for pid0: "+ pid0.parentNode);
+      // console.log("Parent Node for pid1: "+ pid1.parentNode);
+      //
+      // console.log("Children Node for pid0: "+ pid0.childNodes);
+      // console.log("Child1 Node for pid0: "+ pid0.childNodes[0]);
+      // console.log("Child2 Node for pid0: "+ pid0.childNodes[1]);
+      // console.log("Child3 Node for pid0: "+ pid0.childNodes[2]);
+      // console.log("Child4 Node for pid0: "+ pid0.childNodes[3]);
+      // console.log("FirstChild Node for pid0: "+ pid0.firstChild);
+      // console.log("LastChild Node for pid0: "+ pid0.lastChild);
+      // console.log("Sibling list: ");
+      // console.log("previousSibling Node for pid0_firstChild: "+ pid0_firstChild.previousSibling);
+      // console.log("nextSibling Node for pid0_firstChild: "+ pid0_firstChild.nextSibling);
+      // console.log("previousSibling Node for pid0_secondChild: "+ pid0_secondChild.previousSibling);
+      // console.log("nextSibling Node for pid0_secondChild: "+ pid0_secondChild.nextSibling);
+      // console.log("previousSibling Node for pid0_thirdChild: "+ pid0_thirdChild.previousSibling);
+      // console.log("nextSibling Node for pid0_thirdChild: "+ pid0_thirdChild.nextSibling);
+      // console.log("previousSibling Node for pid0_forthChild: "+ pid0_forthChild.previousSibling);
+      // console.log("nextSibling Node for pid0_forthChild: "+ pid0_forthChild.nextSibling);
+      //
+      //
+      // console.log("Children Node for pid1: "+ pid1.childNodes);
+      // console.log("Child1 Node for pid1: "+ pid1.childNodes[0]);
+      // console.log("FirstChild Node for pid1: "+ pid1.firstChild);
+      // console.log("LastChild Node for pid1: "+ pid1.lastChild);
+      //
+      // console.log("previousSibling Node for pid1_firstChild: "+ pid1_firstChild.previousSibling);
+      // console.log("nextSibling Node for pid1_firstChild: "+ pid1_firstChild.nextSibling);
+  </script>
+</body>
+</html>
+
