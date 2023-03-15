@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Grocery List</title>
+    <script src="scripts/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+  <h1>Grocery List</h1>
+  <p id="container">
+    <label for="inputText">Enter Items:</label>
+    <input id="inputText" type="text">
+    <input type="button" id="inputButton" value="Add Items">
+  </p>
+
+  <script>
+    "use strict";
+
+    let checkList = $("li");
+    // console.log(checkList)
+    // alert(checkList.length);
+
+    if(checkList.length === 0)
+    {
+        $("#container").after("<ol></ol>")
+    }
+
+    $("#inputButton").on("click",function()
+    {
+        let inputText = $("#inputText").val();
+        // alert(inputText);
+
+        if(inputText.length === 0)
+        {
+          alert("Input an Element");
+        }
+        else
+        {
+            let listItems = $("ol li:first"); // first item of the list;
+            alert(listItems.text());
+            while(listItems.length !== 0)
+            {
+              if(inputText.toLowerCase() < listItems.text().toLowerCase())
+              {
+                break;
+              }
+              listItems = listItems.next();
+            }
+
+            let listItem = "<li>"+ inputText + "</li>";
+
+            //
+            if(listItems.length === 0)
+            {
+              $("ol").append(listItem);
+            }
+            else
+            {
+             listItems.before(listItem);
+            }
+
+            $("#inputText").val("").focus();
+        }
+    });
+
+  </script>
+</body>
+</html>

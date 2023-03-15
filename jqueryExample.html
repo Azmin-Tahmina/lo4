@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery Example</title>
+    <script src="scripts/jquery-3.4.1.min.js"></script>
+
+</head>
+<body>
+    <p id="pid1">This is a paragraph</p>
+    <p id="pid2"></p>
+    <div class="list">
+        <ul>
+            <li>
+                <span>1</span>
+            </li>
+            <li>
+                <span>2</span>
+            </li>
+            <li>
+                <span>3</span>
+            </li>
+        </ul>
+        <ol>
+            <li>a</li>
+            <li>b</li>
+            <li>c</li>
+        </ol>
+    </div>
+
+
+    <script>
+        "use strict";
+
+        let p_javascript = document.getElementById("pid1");
+        let p_jquery = jQuery("#pid1");
+        let p_jquery1 = $("#pid1");
+
+
+        let class_javascript = document.getElementsByClassName("list")
+        let class_jquery = $(".list");
+
+        let element_javascript = document.getElementsByTagName("li");
+        let element_jquery = $("li");
+
+        console.log(p_jquery1.html())
+        p_jquery1.css(
+            {
+                "font-size" : "large",
+                "background-color" : "blue"
+            }
+        );
+
+    </script>
+</body>
+</html>

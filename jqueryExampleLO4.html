@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Examples from LO4</title>
+    <script src="scripts/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+  <h1>Heading 1</h1>
+  <p>Paragraph 1 <em class="change">html element</em></p>
+  <p>Paragraph 2 <em class="change">html element</em></p>
+  <p class="changeAgain">This is for the example1 of html()</p>
+  <p class="changeAgain">This is for the example2 of html()</p>
+  <ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li class="changeAgain">Item 3</li>
+    <li>Item 4</li>
+    <li>Item 5</li>
+    <li class="changeAgain">Item 6</li>
+  </ul>
+  <p>Paragraph 3</p>
+  <ol>
+    <li>Item 7</li>
+    <li>Item 8</li>
+    <li>Item 9</li>
+    <li>Item 10</li>
+    <li>Item 11</li>
+  </ol>
+  <button id="btnClick">Change Items</button>
+  <button id="btnClick1">Reset</button>
+  <style>
+      /*p{*/
+      /*  background-color: blue;*/
+      /*}*/
+  </style>
+  <Script>
+    "use strict";
+
+    function changeItem()
+    {
+      $("p").css("font-size","large");
+      $("p:first").css("background-color","palevioletred");
+      $("p:last").css("background-color","blue");
+      $("ul li:eq(0)").css("background-color","purple");
+      $("ol li:odd").css({
+        "font-size":"larger",
+        "background-color":"beige",
+        "font-family":"Arial",
+        "color":"blue"
+      });
+
+      $("body").prepend("<p>Added paragraph at first</p>");
+      $("body").append("<p>Added paragraph at the end</p>");
+
+      $("ul").append("<li>last item added</li>");
+      $("ul").prepend("<li>first item added</li>");
+      $("ul li:eq(4)").before("<li>item added before</li>")
+      $("ul li:eq(5)").after("<li>item added after</li>")
+      $("ol").remove();
+      $("h1").replaceWith("<p>Replaced heading with paragraph</p>");
+      $(".change").html("<strong>Added element</strong>")
+      $(".changeAgain").html("<strong>Element changed</strong>")
+    }
+
+    function resetItems()
+    {
+      $("p").removeAttr("style");
+      // $("p:first").removeAttr("style");
+      // $("p:last").removeAttr("style");
+      $("ul li").removeAttr("style");
+      // $("ol li").removeAttr("style");
+      $("p:last").text("This is the last paragraph");
+    }
+
+    $("#btnClick").on("click",changeItem);
+    // $("#btnClick1").onclick = resetItems;
+    $("#btnClick1").on("click",resetItems);
+
+
+  </Script>
+  </Script>
+</body>
+</html>
